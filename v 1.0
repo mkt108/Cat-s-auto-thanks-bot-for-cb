@@ -1,0 +1,25 @@
+cb.settings_choices = [
+    {name: 'tipamount', type: 'int', minValue: 1, defaultValue: 5, label: 'Minimal tip for a thanks-message'},
+];
+
+cb.onTip(function (tip)
+{
+    if (parseInt(tip['amount']) >= cb.settings.tipamount)
+    {
+        tnx = [" Thank you, meow ", " Thanks, purr ", " Arigato, nya ", " Is this for me? awww ", " I'm not broken anymore <3 "]
+        a = Math.floor(Math.random() *5)
+        
+        gif = [":catdance003", ":catdance999", ":catdance7", ":catdance22", ":catdance4", ":jcatdance2" ,":catdance4"]
+        b = Math.floor(Math.random() *7)
+        
+        tipmsg = (gif [b] + tnx [a] + gif [b])
+        cb.sendNotice(tipmsg, " ", "#FFFFFF", "#DB7093", "bold")
+    }
+});
+
+function init()
+{
+
+}
+
+init();
